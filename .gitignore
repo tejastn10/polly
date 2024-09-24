@@ -1,0 +1,106 @@
+# OS generated files #
+######################
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files #
+############################
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.pid
+*.seed
+*.pid.lock
+*.coverage
+*.log.*
+
+# Python #
+##########
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.python-version
+venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+*.pytest_cache/
+
+# Node.js #
+###########
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Rust #
+########
+target/
+
+# Go #
+######
+*.out
+
+# Java #
+########
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+.idea/
+.gradle/
+build/
+*.log
+
+# C++ #
+#######
+*.obj
+*.o
+*.a
+*.lib
+*.so
+*.exe
+*.dll
+
+# General files #
+#################
+*.lock
+*.orig
+*.rej
+
+# Misc #
+########
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/*
+*.code-workspace
+
+# Archives #
+############
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.gz
+*.tgz
+*.bz2
+
+# Temporary files #
+###################
+tmp/
+temp/
+cache/
+dist/
+build/
+.idea/
+*.bak
