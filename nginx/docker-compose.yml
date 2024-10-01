@@ -1,0 +1,9 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: pollyinx
+    ports:
+      - "80:80"
+    volumes:
+      - ./html/index.html:/usr/share/nginx/html/index.html
+    hostname: png1
