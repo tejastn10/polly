@@ -1,0 +1,46 @@
+services:
+  # Polly Server Group 1 (ps1 to ps5)
+  polly1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: polly1
+    networks:
+      - polly-network
+    deploy:
+      replicas: 5 # Scale to 5 instances
+
+  # Polly Server Group 2 (ps6 to ps10)
+  polly2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: polly2
+    networks:
+      - polly-network
+    deploy:
+      replicas: 5 # Scale to 5 instances
+
+  # NGINX Load Balancer 1 (Handles ps1 to ps5)
+  nginx1:
+    image: nginx:latest
+    volumes:
+      - ./nginx.1.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8080:8080" # Exposed externally
+    networks:
+      - polly-network
+
+  # NGINX Load Balancer 2 (Handles ps6 to ps10)
+  nginx2:
+    image: nginx:latest
+    volumes:
+      - ./nginx.2.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8081:8080" # Exposed externally on a different port
+    networks:
+      - polly-network
+
+networks:
+  polly-network:
+    driver: bridge
