@@ -1,0 +1,51 @@
+services:
+  # NGINX load balancer
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./tcp.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - wsserver1
+      - wsserver2
+      - wsserver3
+      - wsserver4
+    networks:
+      - mynetwork
+
+  wsserver1:
+    build:
+      context: .
+    environment:
+      - PORT=2222
+    networks:
+      - mynetwork
+
+  wsserver2:
+    build:
+      context: .
+    environment:
+      - PORT=3333
+    networks:
+      - mynetwork
+
+  wsserver3:
+    build:
+      context: .
+    environment:
+      - PORT=4444
+    networks:
+      - mynetwork
+
+  wsserver4:
+    build:
+      context: .
+    environment:
+      - PORT=5555
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
