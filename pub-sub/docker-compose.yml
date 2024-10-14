@@ -1,13 +1,17 @@
 services:
   rabbitmq:
-    image: rabbitmq:3.8-management-alpine
-    container_name: rabbitmq_test
+    image: rabbitmq:4.0-management-alpine
+
+    container_name: polly_mq
+
     environment:
       - RABBITMQ_DEFAULT_USER=user
       - RABBITMQ_DEFAULT_PASS=password
+
     ports:
       - 5672:5672
       - 15672:15672
+
     volumes:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq/
